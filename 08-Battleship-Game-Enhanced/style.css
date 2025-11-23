@@ -1,0 +1,197 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    height: 100vh;
+    background-color: black;
+}
+
+h1 {
+    color: green;
+    position: absolute;
+    top: 20px;
+    left: 410px;
+    font-size: 2.4rem;
+}
+
+#battlefield-grid {
+    width: 100%;
+    position: relative;
+}
+
+.range-container {
+    display: grid;
+    grid-template-rows: repeat(9, 100px);
+    grid-template-columns: repeat(11, 100px);
+}
+
+.range-container div {
+    border: 1px solid rgb(0, 44, 0);
+    text-align: center;
+}
+
+.range-container .range {
+    border: 1px solid green;
+}
+
+.x-axis {
+    text-align: center;
+    padding: 0 40px 0 40px;
+}
+
+.y-axis {
+    text-align: end;
+    padding: 30px 10px 20px 70px;
+}
+
+.x-axis, .y-axis {
+    color: green;
+    font-size: 1.4rem;
+    font-weight: 600;
+}
+
+.greenmsg {
+    color: green;
+}
+
+.yellowmsg {
+    color: yellow;
+}
+
+.orangemsg {
+    color: orange;
+}
+
+.redmsg {
+    color: red;
+}
+
+.graymsg {
+    color: gray;
+}
+
+.range-container img {
+    width: 70%;
+    margin-top: 30px;
+}
+
+.radar-container {
+    position: relative;
+    top: -850px;
+    left: 13%;
+    width: 800px;
+    height: 800px;
+    border-radius: 50%;
+    background: radial-gradient(circle at center, #001a00 0%, #003300 50%, #006600 100% 0.1);
+    overflow: hidden;
+}
+
+.radar-sweep {
+    position: absolute;
+    top: 0%;
+    left: 50%;
+    width: 50%;
+    height: 100%;
+    transform-origin: 0% 50%;
+    background: linear-gradient(to right, rgba(0, 255, 0, 0) 0%, rgba(0, 255, 0, 0.7) 100%);
+    animation: sweep 8s linear infinite;
+}
+
+@keyframes sweep {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.crosshair-container {
+    position: absolute;
+    top: 26.5%;
+    left: 49%;
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+}
+
+.horizontal-line, .vertical-line {
+    background-color: green;
+    position: absolute;
+}
+
+.horizontal-line {
+    width: 20px;
+    height: 2px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.vertical-line {
+    width: 2px;
+    height: 20px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+#fire-control {
+    position: absolute;
+    right: 20px;
+    bottom: 820px;
+    background-color: green;
+    width: 300px;
+    height: 50px;
+    padding: 10px;
+    text-align: center;
+    border-radius: 5px;
+}
+
+#fire-control input {
+    width: 200px;
+    height: 28px;
+    margin-right: 6px;
+    padding: 5px;
+    font-size: 1rem;
+}
+
+#fire-control input:focus {
+    outline: none;
+    border-color: orangered;
+}
+
+#fire-control button {
+    padding: 4px 16px;
+    background-color: orangered;
+    color: white;
+    font-weight: 600;
+    border-style: none;
+    border-radius: 3px;
+    border: 2px solid transparent;
+}
+
+#fire-control button:hover {
+    background-color: white;
+    color: orangered;
+    border: 2px solid orangered;
+}
+
+@media (min-width: 1100px) {
+    .radar-container {
+        top: -850px;
+        left: 150px;
+    }
+
+    .crosshair-container {
+        top: 26.5%;
+        left: 550px;
+    }
+
+    #fire-control {
+        left: 780px;
+        bottom: 820px;
+    }
+}
